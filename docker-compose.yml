@@ -31,6 +31,8 @@ services:
         expose:
             - "9000"
         volumes:
+            - ./php/www/www.conf:/usr/local/etc/php-fpm.d/www.conf
+            - ./php/www/php.ini:/usr/local/etc/php/conf.d/php.ini
             - ./src:/var/www/html
 
     scm_nginx:
@@ -50,6 +52,8 @@ services:
         expose:
             - "9001"
         volumes:
+            - ./php/scm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+            - ./php/scm/php.ini:/usr/local/etc/php/conf.d/php.ini
             - ./src:/var/www/html
 
     api_nginx:
@@ -69,4 +73,6 @@ services:
         expose:
             - "9002"
         volumes:
+            - ./php/api/www.conf:/usr/local/etc/php-fpm.d/www.conf
+            - ./php/api/php.ini:/usr/local/etc/php/conf.d/php.ini
             - ./src:/var/www/html

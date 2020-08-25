@@ -1,6 +1,6 @@
 FROM nginx:1.19.1
 
-COPY nginx.conf /etc/nginx/
+#COPY nginx.conf /etc/nginx/
 
 #RUN rm /usr/local/etc/php-fpm.d/zz-docker.conf
 

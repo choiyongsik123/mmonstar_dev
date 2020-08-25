@@ -4,7 +4,7 @@ WORKDIR /var/www/html
 
 RUN mkdir -p /usr/local/etc/php-fpm.d/
 
-COPY php.ini /usr/local/etc/php/conf.d/php.ini
+#COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
 COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 RUN rm /usr/local/etc/php-fpm.d/zz-docker.conf
