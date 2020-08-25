@@ -1,11 +1,9 @@
-version: '3'
+version: '3.8'
 services:
     proxy:
         container_name: proxy
         restart: always
-        build:
-            context: ./nginx/proxy
-            dockerfile: Dockerfile
+        image: googoo99/mmonstar_dev:release-proxy
         volumes:
             - ./nginx/proxy/nginx.conf:/etc/nginx/nginx.conf
             - ./nginx/proxy/sites-available:/etc/nginx/sites-available
@@ -25,9 +23,7 @@ services:
 
     www:
         container_name: www
-        build:
-            context: ./php/www
-            dockerfile: Dockerfile
+        image: googoo99/mmonstar_dev:release-www
         expose:
             - "9000"
         volumes:
@@ -46,9 +42,7 @@ services:
             - ./src:/var/www/html
     scm:
         container_name: scm
-        build:
-            context: ./php/scm
-            dockerfile: Dockerfile
+        image: googoo99/mmonstar_dev:release-scm
         expose:
             - "9001"
         volumes:
@@ -67,9 +61,7 @@ services:
             - ./src:/var/www/html
     api:
         container_name: api
-        build:
-            context: ./php/api
-            dockerfile: Dockerfile
+        image: googoo99/mmonstar_dev:release-api
         expose:
             - "9002"
         volumes:
