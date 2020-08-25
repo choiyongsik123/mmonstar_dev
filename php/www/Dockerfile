@@ -6,7 +6,7 @@ RUN mkdir -p /usr/local/etc/php-fpm.d/
 
 #COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
-COPY www.conf /usr/local/etc/php-fpm.d/www.conf
+#COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 RUN rm /usr/local/etc/php-fpm.d/zz-docker.conf
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
