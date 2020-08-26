@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     locales \
     zip \
     unzip \
+    ext-gd \
     jpegoptim optipng pngquant gifsicle \
     && pecl install imagick \
     && docker-php-ext-install pdo pdo_mysql
