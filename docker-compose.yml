@@ -42,7 +42,7 @@ services:
             - ./src:/var/www/html
     scm:
         container_name: scm
-        image: googoo99/mmonstar_dev:release-scm
+        image: googoo99/mmonstar_dev:release-www
         expose:
             - "9001"
         volumes:
@@ -61,10 +61,29 @@ services:
             - ./src:/var/www/html
     api:
         container_name: api
-        image: googoo99/mmonstar_dev:release-api
+        image: googoo99/mmonstar_dev:release-www
         expose:
             - "9002"
         volumes:
             - ./php/api/www.conf:/usr/local/etc/php-fpm.d/www.conf
             - ./php/api/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - ./src:/var/www/html
+
+    admin_nginx:
+        container_name: admin_nginx
+        image: nginx:latest
+        expose:
+            - "8083"
+        volumes:
+            - ./source/admin:/source
+            - ./nginx/admin/default.conf:/etc/nginx/conf.d/default.conf
+            - ./src:/var/www/html
+    admin:
+        container_name: api
+        image: googoo99/mmonstar_dev:release-www
+        expose:
+            - "9003"
+        volumes:
+            - ./php/admin/www.conf:/usr/local/etc/php-fpm.d/www.conf
+            - ./php/admin/php.ini:/usr/local/etc/php/conf.d/php.ini
             - ./src:/var/www/html
