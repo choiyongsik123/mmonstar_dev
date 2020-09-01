@@ -79,7 +79,7 @@ services:
             - ./nginx/admin/default.conf:/etc/nginx/conf.d/default.conf
             - ./src:/var/www/html
     admin:
-        container_name: api
+        container_name: admin
         image: googoo99/mmonstar_dev:release-www
         expose:
             - "9003"
